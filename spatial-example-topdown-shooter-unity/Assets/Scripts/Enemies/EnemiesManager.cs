@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Keep track of all active enemies.
 // Using a monoBehavior so we can clear static data when the game is destroyed
 public class EnemiesManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EnemiesManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Always clear static memory when the game is destroyed
         enemies = null;
     }
 

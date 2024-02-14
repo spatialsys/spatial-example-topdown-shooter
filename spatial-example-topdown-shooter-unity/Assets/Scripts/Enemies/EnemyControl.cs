@@ -26,8 +26,8 @@ public class EnemyControl : MonoBehaviour, IDamageable
         health -= damage;
         OnTakeDamage?.Invoke();
         VFXManager.HitVFX(transform.position);
-        //Damage numbers
-        SpatialBridge.vfxService.CreateFloatingText("<size=20><b>" + damage.ToString(), FloatingTextAnimStyle.Bouncy, transform.position + UnityEngine.Random.insideUnitSphere , Vector3.up * 13f, Color.white, lifetime: .3f);
+        // Damage numbers
+        SpatialBridge.vfxService.CreateFloatingText("<size=20><b>" + damage.ToString(), FloatingTextAnimStyle.Bouncy, transform.position + UnityEngine.Random.insideUnitSphere , Vector3.up * 13f, Color.white);
         if (health <= 0)
         {
             Die();
@@ -38,7 +38,8 @@ public class EnemyControl : MonoBehaviour, IDamageable
     {
         OnDie?.Invoke();
         VFXManager.DieVFX(transform.position);
-        SpatialBridge.vfxService.CreateFloatingText("<color=yellow><b><i><size=14>+15xp", FloatingTextAnimStyle.Bouncy, transform.position + UnityEngine.Random.insideUnitSphere , Vector3.up * 5f, Color.white, lifetime: .4f);
+        // Fake XP earned
+        SpatialBridge.vfxService.CreateFloatingText("<color=yellow><b><i><size=14>+15xp", FloatingTextAnimStyle.Bouncy, transform.position + UnityEngine.Random.insideUnitSphere , Vector3.up * 3f, Color.white);
         GameObject.Destroy(gameObject);
     }
 }
